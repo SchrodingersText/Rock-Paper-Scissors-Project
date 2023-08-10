@@ -46,3 +46,41 @@ function playRound(playerChoice, computerChoice) {
             break;
     }
 }
+
+function game() {
+    let playerWins = 0
+    let computerWins = 0
+    let ties = 0
+
+    let roundOne = playRound()
+    roundOne.includes("computer") ? ++computerWins : ((roundOne.includes("You win")) ? ++playerWins : ++ ties)
+    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
+
+    let roundTwo = playRound()
+    roundTwo.includes("computer") ? ++computerWins : ((roundTwo.includes("You win")) ? ++playerWins : ++ ties)
+    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
+    
+    let roundThree = playRound()
+    roundThree.includes("computer") ? ++computerWins : ((roundThree.includes("You win")) ? ++playerWins : ++ ties)
+    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
+
+    let roundFour = playRound()
+    roundFour.includes("computer") ? ++computerWins : ((roundFour.includes("You win")) ? ++playerWins : ++ ties)
+    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
+
+    let roundFive = playRound()
+    roundFive.includes("computer") ? ++computerWins : ((roundFive.includes("You win")) ? ++playerWins : ++ ties)
+    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
+
+    let gameWinner 
+
+    if (playerWins > computerWins) {
+        gameWinner = `You win the game, with ${playerWins} points & ${ties} ties!`
+    } else if (computerWins > playerWins) {
+        gameWinner = `The computer wins the game, with ${computerWins} points & ${ties} ties!`
+    } else {
+        gameWinner = `Game tied!`
+    }
+
+    return gameWinner;
+}
