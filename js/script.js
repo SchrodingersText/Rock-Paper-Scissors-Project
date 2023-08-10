@@ -19,7 +19,7 @@ function playRound(playerChoice, computerChoice) {
             if (computerChoice === "Paper") {
                 return `The computer wins! ${computerChoice} beats ${playerChoice}.`
             } else if (computerChoice === "Scissors") {
-                return `You win! ${playerChoice} beats ${computerChoice}.`
+                return `You win! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`
             } else {
                 return `It's a tie! ${computerChoice} against ${playerChoice}`
             }
@@ -29,18 +29,20 @@ function playRound(playerChoice, computerChoice) {
             if (computerChoice === "Scissors") {
                 return `The computer wins! ${computerChoice} beat ${playerChoice}.`
             } else if (computerChoice === "Rock") {
-                return `You win! ${playerChoice} beats ${computerChoice}.`
+                return `You win! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`
             } else {
                 return `It's a tie! ${computerChoice} against ${playerChoice}`
             }
+            break;
         
         case "scissors":
             if (computerChoice === "Rock") {
                 return `The computer wins! ${computerChoice} beats ${playerChoice}.`
             } else if (computerChoice === "Paper") {
-                return `You win! ${playerChoice} beat ${computerChoice}.`
+                return `You win! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beat ${computerChoice}.`
             } else {
                 return `It's a tie! ${computerChoice} against ${playerChoice}`
             }
+            break;
     }
 }
