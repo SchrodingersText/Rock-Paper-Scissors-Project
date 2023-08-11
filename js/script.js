@@ -17,31 +17,31 @@ function playRound(playerChoice, computerChoice) {
     switch (playerChoice) {
         case "rock":
             if (computerChoice === "Paper") {
-                return `The computer wins! ${computerChoice} beats ${playerChoice}.`
+                return `The computer wins this round! ${computerChoice} beats ${playerChoice}.`
             } else if (computerChoice === "Scissors") {
-                return `You win! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`
+                return `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`
             } else {
-                return `It's a tie! ${computerChoice} against ${playerChoice}`
+                return `It's a tie! ${computerChoice} against ${playerChoice}.`
             }
             break;
         
         case "paper":
             if (computerChoice === "Scissors") {
-                return `The computer wins! ${computerChoice} beat ${playerChoice}.`
+                return `The computer wins this round! ${computerChoice} beat ${playerChoice}.`
             } else if (computerChoice === "Rock") {
-                return `You win! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`
+                return `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`
             } else {
-                return `It's a tie! ${computerChoice} against ${playerChoice}`
+                return `It's a tie! ${computerChoice} against ${playerChoice}.`
             }
             break;
         
         case "scissors":
             if (computerChoice === "Rock") {
-                return `The computer wins! ${computerChoice} beats ${playerChoice}.`
+                return `The computer wins this round! ${computerChoice} beats ${playerChoice}.`
             } else if (computerChoice === "Paper") {
-                return `You win! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beat ${computerChoice}.`
+                return `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beat ${computerChoice}.`
             } else {
-                return `It's a tie! ${computerChoice} against ${playerChoice}`
+                return `It's a tie! ${computerChoice} against ${playerChoice}.`
             }
             break;
     }
@@ -53,34 +53,36 @@ function game() {
     let ties = 0
 
     let roundOne = playRound()
+    console.log(roundOne)
     roundOne.includes("computer") ? ++computerWins : ((roundOne.includes("You win")) ? ++playerWins : ++ ties)
-    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
 
     let roundTwo = playRound()
+    console.log(roundTwo)
     roundTwo.includes("computer") ? ++computerWins : ((roundTwo.includes("You win")) ? ++playerWins : ++ ties)
-    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
     
     let roundThree = playRound()
+    console.log(roundThree)
     roundThree.includes("computer") ? ++computerWins : ((roundThree.includes("You win")) ? ++playerWins : ++ ties)
-    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
 
     let roundFour = playRound()
+    console.log(roundFour)
     roundFour.includes("computer") ? ++computerWins : ((roundFour.includes("You win")) ? ++playerWins : ++ ties)
-    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
 
     let roundFive = playRound()
+    console.log(roundFive)
     roundFive.includes("computer") ? ++computerWins : ((roundFive.includes("You win")) ? ++playerWins : ++ ties)
-    console.log(`You: ${playerWins} Computer: ${computerWins} Ties: ${ties}`)
 
     let gameWinner 
 
     if (playerWins > computerWins) {
-        gameWinner = `You win the game, with ${playerWins} points & ${ties} ties!`
+        gameWinner = `You win the game, with ${playerWins} points & ${ties} ties.`
     } else if (computerWins > playerWins) {
-        gameWinner = `The computer wins the game, with ${computerWins} points & ${ties} ties!`
+        gameWinner = `The computer wins the game, with ${computerWins} points & ${ties} ties.`
     } else {
         gameWinner = `Game tied!`
     }
 
     return gameWinner;
 }
+
+console.log(game())
