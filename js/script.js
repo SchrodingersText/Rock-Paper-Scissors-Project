@@ -13,7 +13,7 @@ function getComputerChoice() {
 const rockButton = document.querySelector('#rock');
 const snailButton = document.querySelector('#snail');
 const leafButton = document.querySelector('#leaf');
-const resultsContainer = document.querySelector('#results-container');
+const resultText = document.querySelector('#result-text');
 
 function playRound(playerChoice, computerChoice) {
     playerChoice = this.id;
@@ -22,31 +22,31 @@ function playRound(playerChoice, computerChoice) {
     switch (playerChoice) {
         case "rock":
             if (computerChoice === "leaf") {
-                resultsContainer.textContent = `The computer wins this round! ${computerChoice} covers ${playerChoice}.`;
+                resultText.textContent = `The computer wins this round! ${computerChoice} covers ${playerChoice}.`;
             } else if (computerChoice === "snail") {
-                resultsContainer.textContent = `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} clobbers ${computerChoice}.`;
+                resultText.textContent = `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} clobbers ${computerChoice}.`;
             } else {
-                resultsContainer.textContent = `It's a tie! ${computerChoice} against ${playerChoice}.`;
+                resultText.textContent = `It's a tie! ${computerChoice} against ${playerChoice}.`;
             }
             break;
         
         case "leaf":
             if (computerChoice === "snail") {
-                resultsContainer.textContent = `The computer wins this round! ${computerChoice} eats the ${playerChoice}.`;
+                resultText.textContent = `The computer wins this round! ${computerChoice} eats the ${playerChoice}.`;
             } else if (computerChoice === "rock") {
-                resultsContainer.textContent = `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} covers ${computerChoice}.`;
+                resultText.textContent = `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} covers ${computerChoice}.`;
             } else {
-                resultsContainer.textContent = `It's a tie! ${computerChoice} against ${playerChoice}.`;
+                resultText.textContent = `It's a tie! ${computerChoice} against ${playerChoice}.`;
             }
             break;
         
         case "snail":
             if (computerChoice === "rock") {
-                resultsContainer.textContent = `The computer wins this round! ${computerChoice} clobbers ${playerChoice}.`;
+                resultText.textContent = `The computer wins this round! ${computerChoice} clobbers ${playerChoice}.`;
             } else if (computerChoice === "leaf") {
-                resultsContainer.textContent = `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} eats ${computerChoice}.`;
+                resultText.textContent = `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} eats ${computerChoice}.`;
             } else {
-                resultsContainer.textContent = `It's a tie! ${computerChoice} against ${playerChoice}.`;
+                resultText.textContent = `It's a tie! ${computerChoice} against ${playerChoice}.`;
             }
             break;
     }
@@ -55,6 +55,14 @@ function playRound(playerChoice, computerChoice) {
 rockButton.addEventListener('click', playRound);
 snailButton.addEventListener('click', playRound);
 leafButton.addEventListener('click', playRound);
+
+function game() {
+    let playerWins = 0;
+    let computerWins = 0;
+    let ties = 0;
+
+
+};
 
 
 /*function game() {
