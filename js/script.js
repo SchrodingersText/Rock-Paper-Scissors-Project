@@ -1,53 +1,62 @@
-function getComputerChoice() {   // function returns either Rock, Paper, or Scissors when called
-  const randomNumber = Math.floor(Math.random() * 100)    // the function first generates a random number between 0 and 99
+function getComputerChoice() {     
+  const randomNumber = Math.floor(Math.random() * 100)     
 
   if (randomNumber >= 0 && randomNumber <= 32) {  
-    return "Rock"    // if the random number is between 0-32, Rock is returned
+    return "rock"     
   } else if (randomNumber >= 33 && randomNumber <= 66) {
-    return "Paper"   // if the random number is between 33-66, Paper is returned
+    return "leaf"     
   } else {
-    return "Scissors"   // if the random number is between 67-99, Scissors is returned
+    return "snail"       
   }
 }
 
 function playRound(playerChoice, computerChoice) {
-    playerChoice = prompt("Enter your choice. Rock, paper, or scissors?").toLowerCase()
+    playerChoice = this.id;
     computerChoice = getComputerChoice()
-    
+
     switch (playerChoice) {
         case "rock":
-            if (computerChoice === "Paper") {
+            if (computerChoice === "leaf") {
                 return `The computer wins this round! ${computerChoice} beats ${playerChoice}.`
-            } else if (computerChoice === "Scissors") {
+            } else if (computerChoice === "snail") {
                 return `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`
             } else {
                 return `It's a tie! ${computerChoice} against ${playerChoice}.`
             }
             break;
         
-        case "paper":
-            if (computerChoice === "Scissors") {
+        case "leaf":
+            if (computerChoice === "snail") {
                 return `The computer wins this round! ${computerChoice} beat ${playerChoice}.`
-            } else if (computerChoice === "Rock") {
+            } else if (computerChoice === "rock") {
                 return `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`
             } else {
                 return `It's a tie! ${computerChoice} against ${playerChoice}.`
             }
             break;
         
-        case "scissors":
-            if (computerChoice === "Rock") {
+        case "snail":
+            if (computerChoice === "rock") {
                 return `The computer wins this round! ${computerChoice} beats ${playerChoice}.`
-            } else if (computerChoice === "Paper") {
+            } else if (computerChoice === "leaf") {
                 return `You win the round! ${playerChoice.slice(0,1).toUpperCase() + playerChoice.slice(1)} beat ${computerChoice}.`
             } else {
                 return `It's a tie! ${computerChoice} against ${playerChoice}.`
             }
             break;
     }
-}
+};
 
-function game() {
+const rockButton = document.querySelector('#rock');
+const snailButton = document.querySelector('#snail');
+const leafButton = document.querySelector('#leaf');
+
+rockButton.addEventListener('click', playRound);
+snailButton.addEventListener('click', playRound);
+leafButton.addEventListener('click', playRound);
+
+
+/*function game() {
     let playerWins = 0
     let computerWins = 0
     let ties = 0
@@ -86,3 +95,4 @@ function game() {
 }
 
 console.log(game())
+*/
