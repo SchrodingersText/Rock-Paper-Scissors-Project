@@ -14,9 +14,15 @@ const rockButton = document.querySelector('#rock');
 const snailButton = document.querySelector('#snail');
 const leafButton = document.querySelector('#leaf');
 const resultText = document.querySelector('#result-text');
+
 let playerWins = 0;
 let computerWins = 0;
 let roundTies = 0;
+
+const scoreboard = document.querySelector('#scoreboard');
+document.addEventListener('click', () => {
+    scoreboard.textContent = `${playerWins} | ${computerWins} | ${roundTies}`;
+});
 
 function playRound(playerChoice, computerChoice) {
     playerChoice = this.id;
