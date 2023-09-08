@@ -13,17 +13,19 @@ function getComputerChoice() {
 const rockButton = document.querySelector('#rock');
 const snailButton = document.querySelector('#snail');
 const leafButton = document.querySelector('#leaf');
+const buttonContainer = document.querySelector('#btn-container');
 const resultText = document.querySelector('#result-text');
-const resultsContainer = document.querySelector('#results-container')
+const resultsContainer = document.querySelector('#results-container');
 const winnerText = document.createElement('div');
-resultsContainer.appendChild(winnerText);
+const resetButton = document.createElement('button');
+resetButton.textContent = 'Play again?'
 
 let playerWins = 0;
 let computerWins = 0;
 let roundTies = 0;
 
 const scoreboard = document.querySelector('#scoreboard');
-document.addEventListener('click', () => {
+buttonContainer.addEventListener('click', () => {
     scoreboard.textContent = `${playerWins} | ${computerWins} | ${roundTies}`;
 });
 
@@ -79,13 +81,28 @@ function playRound(playerChoice, computerChoice) {
 
 function showWinner() {
     if (playerWins === 5) {
+        resultsContainer.appendChild(winnerText);
         winnerText.textContent = "You've won the game!";
+        resultsContainer.appendChild(resetButton)
     } else if (computerWins === 5) {
+        resultsContainer.appendChild(winnerText);
         winnerText.textContent = "The computer wins the game.";
+        resultsContainer.appendChild(resetButton)
     };
+};
+
+function resetGame() {
+    playerWins = 0;
+    computerWins = 0;
+    roundTies = 0;
+    scoreboard.textContent = " ";
+    resultText.textContent = "";
+    resultsContainer.removeChild(winnerText);
+    resultsContainer.removeChild(resetButton);
 };
 
 rockButton.addEventListener('click', playRound);
 snailButton.addEventListener('click', playRound);
 leafButton.addEventListener('click', playRound);
 document.addEventListener('click', showWinner)
+resetButton.addEventListener('click', resetGame)
