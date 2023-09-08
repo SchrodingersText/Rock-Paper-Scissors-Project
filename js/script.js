@@ -14,6 +14,9 @@ const rockButton = document.querySelector('#rock');
 const snailButton = document.querySelector('#snail');
 const leafButton = document.querySelector('#leaf');
 const resultText = document.querySelector('#result-text');
+const resultsContainer = document.querySelector('#results-container')
+const winnerText = document.createElement('div');
+resultsContainer.appendChild(winnerText);
 
 let playerWins = 0;
 let computerWins = 0;
@@ -27,6 +30,10 @@ document.addEventListener('click', () => {
 function playRound(playerChoice, computerChoice) {
     playerChoice = this.id;
     computerChoice = getComputerChoice();
+    
+    if (playerWins === 5 || computerWins === 5) {
+        return;
+    };
 
     switch (playerChoice) {
         case "rock":
@@ -70,50 +77,15 @@ function playRound(playerChoice, computerChoice) {
     }
 };
 
+function showWinner() {
+    if (playerWins === 5) {
+        winnerText.textContent = "You've won the game!";
+    } else if (computerWins === 5) {
+        winnerText.textContent = "The computer wins the game.";
+    };
+};
+
 rockButton.addEventListener('click', playRound);
 snailButton.addEventListener('click', playRound);
 leafButton.addEventListener('click', playRound);
-
-
-
-
-/*function game() {
-    let playerWins = 0
-    let computerWins = 0
-    let ties = 0
-
-    let roundOne = playRound()
-    console.log(roundOne)
-    roundOne.includes("computer") ? ++computerWins : ((roundOne.includes("You win")) ? ++playerWins : ++ ties)
-
-    let roundTwo = playRound()
-    console.log(roundTwo)
-    roundTwo.includes("computer") ? ++computerWins : ((roundTwo.includes("You win")) ? ++playerWins : ++ ties)
-    
-    let roundThree = playRound()
-    console.log(roundThree)
-    roundThree.includes("computer") ? ++computerWins : ((roundThree.includes("You win")) ? ++playerWins : ++ ties)
-
-    let roundFour = playRound()
-    console.log(roundFour)
-    roundFour.includes("computer") ? ++computerWins : ((roundFour.includes("You win")) ? ++playerWins : ++ ties)
-
-    let roundFive = playRound()
-    console.log(roundFive)
-    roundFive.includes("computer") ? ++computerWins : ((roundFive.includes("You win")) ? ++playerWins : ++ ties)
-
-    let gameWinner 
-
-    if (playerWins > computerWins) {
-        gameWinner = `You win the game, with ${playerWins} points & ${ties} ties.`
-    } else if (computerWins > playerWins) {
-        gameWinner = `The computer wins the game, with ${computerWins} points & ${ties} ties.`
-    } else {
-        gameWinner = `Game tied!`
-    }
-
-    return gameWinner;
-}
-
-console.log(game())
-*/
+document.addEventListener('click', showWinner)
