@@ -3,17 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,200;0,400;0,500;0,600;0,900;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="sidebar">
+        <h1 id="title">
+            <div id="rock-title">Rock<span class="comma">,</span></div>
+            <div id="snail-title">Snail<span class="comma">,</span></div>
+            <div id="leaf-title">Leaf<span>.</span></div>
+        </h1>
+    </div>
+
+    <div class="game-container">
     <div id='btn-container'>
-        <button id='rock' class='play'>Rock</button>
-        <button id='snail' class='play'>Snail</button>
-        <button id='leaf' class='play'>Leaf</button>
+        <button id='rock' class='play'></button>
+        <button id='snail' class='play'></button>
+        <button id='leaf' class='play'></button>
     </div>
 
     <div id='results-container'>
         <div id='scoreboard'></div>
         <div id='result-text'></div>
+    </div>
     </div>
 
     <script src="./js/script.js"></script>

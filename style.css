@@ -1,0 +1,148 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin:0;
+    display: flex;
+    font-family: "Petrona", serif;
+    overflow: hidden;
+}
+
+.sidebar {
+    height: 100vh;
+    width:25vw;
+    background-color: #04583c;
+    background-image: url('./images/sidebarimage.jpg');
+    border-right: 2px solid cadetblue;
+}
+
+#title {
+    font-family: "Petrona", serif;
+    font-weight: 900;
+    color: #271d16c2;
+    writing-mode: vertical-lr;
+    rotate: 180deg;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    height: 100vh;
+}
+
+#rock-title {
+    font-size: 18vw;
+    margin: -4.3vw -2vw 0 0;
+}
+
+#snail-title {
+    font-size: 9vw;
+    margin: 23vw -5vw 0 0;
+}
+
+#leaf-title {
+    font-size: 4vw;
+    margin: 40vw -2.5vw 0 0;
+}
+
+.comma {
+    font-size: 7vw;
+}
+
+#rock-title>.comma {
+    font-size: 12vw;
+}
+
+.play {
+    height: 12vw;
+    width: 12vw;
+    min-height: 8rem;
+    min-width: 8rem;
+    background-color: #04583c;
+    border-radius: 999px;
+    border: none;
+    background-image: url("./images/sidebarimage.jpg"); 
+    background-position: left;
+    transition: all .7s;
+    flex-basis: 0 1 1;
+ }
+
+ .play:hover {
+    transform: rotateY(20deg);
+ }
+
+ #rock {
+    background-image: url("./images/rockbutton.svg"), url("./images/buttonback1.jpg");
+    background-size: 10vw, cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 8vw;
+ }
+
+ #snail {
+    background-image: url("./images/snailbutton.svg"), url("./images/buttonback2.jpg");
+    background-size: 12vw, cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+
+ #leaf {
+    background-image: url("./images/leafbutton.svg"), url("./images/buttonback4.jpg");
+    background-size: 10vw, cover;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75vw;
+}
+
+ #btn-container {
+    display: flex;
+    gap: 5vw;
+    margin: 0 0 3vw 0; /* had 3vw margin on third item to create space between buttons
+    and results*/
+ }
+
+ #results-container {
+    color: #271d16c2;
+    margin: 0 0 0 9vw;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    gap:.5vw;
+    height: 11vw;
+    font-weight: 500;
+ }
+
+ #scoreboard {
+    font-size: 6vw;
+    font-weight: 400;
+ }
+
+ #reset-button {
+    font-family: "Petrona", serif;
+    font-size: .8rem;
+    color: #271d16;
+    background-color: #04583c;
+    background-image: url("/images/buttonback3.jpg");
+    background-attachment: fixed;
+    border: none;
+    border-radius: 5px 5px;
+    width: 5.5vw;
+    min-height: 2vw;
+    transition: all .7s;
+ }
+
+ #reset-button:hover {
+    border: 1px solid cadetblue;
+    transform: scale(1.05);
+ }
